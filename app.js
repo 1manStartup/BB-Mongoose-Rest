@@ -2,7 +2,7 @@ var express = require('express'),
     routes = require('./routes'),
     mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/kush1')
+mongoose.connect('mongodb://localhost/so-help')
 var Schema = mongoose.Schema;
 var Dog = new Schema({
   name: String,
@@ -45,10 +45,12 @@ app.get('/', function(req, res){
 });
 
 app.post('/api/makedog', function( request, response ) {
+  console.log("sale en p0st");
     var dog = new Dog({
-    name: request.body.name
+    name: request.body.name,
   });
-dog.articles.push({articlename: 'My First Article'});
+
+dog.articles.push({articlename: request.body.articlename});
   dog.save({});
   return response.send( dog );
    });
@@ -67,18 +69,18 @@ app.get( '/api/makedog/:id', function( request, response ) {
 });
 
 app.put( '/api/makedog/:id', function( request, response ) {
-  return Dog.findById( request.params.id, function( err, dog ) {
-   // dog.articles.push({articlename: request.body.articlename});
-dog.articles.push = request.body.articlename;
-    return dog.save( function( err ) {
-      if( !err ) {
-        console.log( 'dog just updated' );
-      } else {
-        console.log( err );
+console.log("sale en put");
+return Dog.findById(req.params.id, function (err, dog){
+
+var boo = dog.articles.create({ articlename: 'Aaron' });
+console.log(boo);
+    dog.save(function(err) {
+      if (!err){
+console.log("eres patron");
       }
-      return response.send( dog );
-    });
-  });
+
+    })
+  })
 });
 
 

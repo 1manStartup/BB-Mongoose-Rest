@@ -25,7 +25,7 @@ html
 
 
   script(type="text/template", id="dogs-template")
-   form(id="addDog, action='#)
+   form(id="addDog", action="#)
     input#new-todo(placeholder="Add a Dog", name="name")
     input(type="hidden", name="_method", value="put")
     button#add Add
@@ -43,7 +43,7 @@ html
    li  Article  <%= articlename %>
 
   script(type="text/template", id="articles-template")
-   form(id="addArticle, action='#')
+   form(id="addArticle", action='#')
     input#new-article(placeholder !="New Article for <%= name %>", name="articlename")
     button#add-article Add Article
 
