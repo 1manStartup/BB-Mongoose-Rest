@@ -1,0 +1,57 @@
+!!! 5
+html
+ head
+  title HELLLO
+  
+  script(src='javascripts/jquery.js')
+  script(src='javascripts/json2.js')
+  script(src='javascripts/underscore.js')
+  script(src='javascripts/backbone.js')
+  script(src='javascripts/backbone.marionette.min.js')
+  script(src='javascripts/backbone.wreqr.js')
+
+ body
+  p welcome to j-17
+  table
+   tr
+    td(bgcolor="yellow")
+     div#header
+     div#content
+    td(bgcolor="lightblue")
+     div#middle Add a Dog first
+
+    td(bgcolor="red")
+     div#right Add an Article First
+
+
+  script(type="text/template", id="dogs-template")
+   form(id="addDog, action='#)
+    input#new-todo(placeholder="Add a Dog", name="name")
+    input(type="hidden", name="_method", value="put")
+    button#add Add
+   ul
+
+  script(type="text/template", id="dog-template")
+   table
+    tr
+     td 
+      div.dog <%= name %> 
+     td 
+      button#delete Delete
+
+  script(type="text/template", id="article-template")
+   li  Article  <%= articlename %>
+
+  script(type="text/template", id="articles-template")
+   form(id="addArticle, action='#')
+    input#new-article(placeholder !="New Article for <%= name %>", name="articlename")
+    button#add-article Add Article
+
+   div Articles Collection for <%= name %>
+    <% _.each( articles, function( articles ){ %>
+    li <%= articles.articlename %> 
+     <% }); %>
+    
+  ul#mer
+
+  script(src='javascripts/demoj17.js')
